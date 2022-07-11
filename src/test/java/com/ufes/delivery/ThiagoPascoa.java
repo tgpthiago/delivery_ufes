@@ -20,6 +20,7 @@ import java.time.format.DateTimeFormatter;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Disabled;
 
 public class ThiagoPascoa {
@@ -82,56 +83,57 @@ public class ThiagoPascoa {
                 , res);
     }
     
-    @Disabled
+   
     @Test
-    @DisplayName("Cancelar um pedido que está aguardando pagamento")
+    @DisplayName("Verificar o getNome de Imposto")
     void CT002(){
-        //Horário de início: 13:17
+        //Horário de início: xx:xx
         //Horário de témino: xx:xx
-        
-        //Arrange
-        
-        //Act
-        
-        //Assert
-
+        String nome ;
+        String expected = "Thiago";
+        Imposto imposto = new Imposto("Thiago", 0.6 ,230.00);
+        //act
+        nome = imposto.getNome();
+        //assert
+        assertEquals(expected,nome);
     }
     
-     @Disabled
+    
     @Test
-    @DisplayName("Cancelar um pedido que está aguardando pagamento")
+    @DisplayName("Verificar o getPercentual de Imposto")
     void CT003(){
-        //Horário de início: 13:17
+        //Horário de início: xx:xx
         //Horário de témino: xx:xx
-        
-        //Arrange
-        
-        //Act
-        
-        //Assert
+        double percentual ;
+        double expected = 0.6;
+        Imposto imposto = new Imposto("Thiago", 0.6 ,230.00);
+        //act
+        percentual = imposto.getPercentual();
+        //assert
+        assertEquals(expected,percentual);
 
     }
-    
-    @Disabled
+   
     @Test
-    @DisplayName("Cancelar um pedido que está aguardando pagamento")
+    @DisplayName("Verificar o getValor de Imposto")
     void CT004(){
-        //Horário de início: 13:17
+        //Horário de início: xx:xx
         //Horário de témino: xx:xx
-        
-        //Arrange
-        
-        //Act
-        
-        //Assert
+        double valor ;
+        double expected = 230.0;
+        Imposto imposto = new Imposto("Thiago", 0.6 ,230.00);
+        //act
+        valor = imposto.getValor();
+        //assert
+        assertEquals(expected,valor);
 
     }
     
     @Disabled
     @Test
-    @DisplayName("Cancelar um pedido que está aguardando pagamento")
+    @DisplayName("Verificar se as informações em 'toString' da classe 'Imposto' são retornadas corretamente")
     void CT005(){
-        //Horário de início: 13:17
+        //Horário de início: xx:xx
         //Horário de témino: xx:xx
         
         //Arrange
@@ -146,3 +148,4 @@ public class ThiagoPascoa {
     
     
 }
+
