@@ -32,30 +32,6 @@ public class ThiagoPascoa {
     void carregaDao() {
         dao = ProdutoDAO.getInstance();
     }
-
-    @Disabled
-    @Test
-    @DisplayName("Cancelar um pedido que está aguardando pagamento")
-    void CT000(){
-        //Horário de início: 8:48
-        //Horário de témino: 9:12
-        //Arrange
-        cliente = new Cliente("Tarcisio", 2000.0);
-        estabelecimento = new Estabelecimento("Lojas Americanas");
-        Pedido pedido = new Pedido(1, cliente, estabelecimento, LocalTime.of(12, 00));
-
-        //Act
-        pedido.incluir(new ItemPedido(pedido, dao.buscaProdutoPorCodigo(7), 2));
-        pedido.concluir();
-        pedido.cancelar();
-        pedido.reembolsar();
-        pedido.avaliar(3);
-
-        //Assert
-        assertThat(pedido.getItens().size(), is(1));
-        assertThat(pedido.getValorReembolsado(), is(0.0));
-        assertThat(cliente.getSaldo(), is(2000.0));
-    }
     
     @Test
     @DisplayName("Validação do toString de PedidoVisitor para os casos não abordados por LucasC.")
