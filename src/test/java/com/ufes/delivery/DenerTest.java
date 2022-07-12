@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.ufes.delivery.builder.DiretorCesta;
+import com.ufes.delivery.exception.OperacaoInvalidaException;
 import com.ufes.delivery.imposto.Imposto;
 import com.ufes.delivery.model.Cliente;
 import com.ufes.delivery.model.Estabelecimento;
@@ -34,7 +35,7 @@ class DenerTest {
 		// Act
 
 		// Assert
-		assertEquals( " Produto: Produto de Teste, código: 38, preço unitário: 1,50, quantidade em estoque: 1,00", produto.toString() );
+		assertEquals( " Produto: Produto de Teste, código: 38, preço unitário: 1.50, quantidade em estoque: 1.00", produto.toString() );
 
 	}
 
@@ -94,7 +95,7 @@ class DenerTest {
 		// Act
 
 		// Assert
-		assertThrows( RuntimeException.class, () -> diretor.build( null ) );
+		assertThrows( OperacaoInvalidaException.class, () -> diretor.build( null ) );
 	}
 
 	@Test
@@ -127,7 +128,7 @@ class DenerTest {
 		// Act
 
 		// Assert
-		assertThrows( RuntimeException.class, () -> pedido.setValorReembolsado( 0 ) );
+		assertThrows( OperacaoInvalidaException.class, () -> pedido.setValorReembolsado( 0 ) );
 	}
 
 	@Test
